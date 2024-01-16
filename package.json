@@ -8,6 +8,7 @@
     "build": "node ./node_modules/webpack/bin/webpack.js --mode=production --config config/webpack.config.js"
   },
   "devDependencies": {
+    "chrome-types": "^0.1.250",
     "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^6.9.0",
     "file-loader": "^6.2.0",
