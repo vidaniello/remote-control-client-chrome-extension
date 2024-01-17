@@ -1,7 +1,7 @@
 'use strict';
 
 import './popup.css';
-import 'chrome-types';
+
 
 (function() {
   // We will make use of Storage API to get and store `count` value
