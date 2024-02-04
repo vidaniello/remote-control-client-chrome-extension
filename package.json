@@ -4,7 +4,8 @@
   "description": "My Chrome Extension",
   "private": true,
   "scripts": {
-    "watch": "node ./node_modules/webpack/bin/webpack.js --mode=development --watch --config config/webpack.config.js",
+    "watch1": "node ./node_modules/webpack/bin/webpack.js --mode=development --watch --config config/webpack.config.js",
+    "watch": "webpack --mode=development --watch --config config/webpack.config.js",
     "build": "node ./node_modules/webpack/bin/webpack.js --mode=production --config config/webpack.config.js"
   },
   "devDependencies": {

@@ -58,11 +58,17 @@ import './popup.css';
       }
 
       counterStorage.set(newCount, () => {
-        document.getElementById('counter').innerHTML = newCount;
+        //document.getElementById('counter').innerHTML = newCount;
+        chrome.runtime.sendMessage({
+          type: 'updateCounterHtmlFromPopup',
+          count: newCount
+        }
+        //, resp => {}
+        );
 
         // Communicate with content script of
         // active tab by sending a message
-        chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
+        chrome.tabs.query({ active: true, currentWindow: false }, tabs => {
           const tab = tabs[0];
 
           chrome.tabs.sendMessage(
@@ -80,6 +86,17 @@ import './popup.css';
         });
       });
     });
+  }
+  
+  chrome.runtime.onMessage.addListener((request, sender, sendResponse)=>{
+    if (request.type === 'updateCounterHtmlFromBackground') {
+      updateCounterHtml(request.count);
+    }
+    return true;
+  });
+
+  function updateCounterHtml(count){
+    document.getElementById('counter').innerHTML = count;
   }
 
   function restoreCounter() {

@@ -2,6 +2,11 @@
 
 My Chrome Extension
 
+## External documentation
+
+- Hello world: [link](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world?hl=it)
+- Chrome extension sockets: [link](https://developer.chrome.com/docs/apps/manifest/sockets?hl=en)
+
 ## Features
 
 - Feature 1

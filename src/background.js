@@ -19,3 +19,31 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     });
   }
 });
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse)=>{
+  if (request.type === 'updateCounterHtmlFromPopup') {
+    //updateCounterHtml(request.count);
+    //console.log("counter set to "+request.count);
+    chrome.runtime.sendMessage({
+      type: 'updateCounterHtmlFromBackground',
+      count: request.count
+    });
+  }
+  return true;
+});
+
+
+var d = chrome.sockets;
+var t = 0;
+/*
+chrome.sockets.udp.create({}, function(socketInfo) {
+  // The socket is created, now we can send some data
+  var socketId = socketInfo.socketId;
+  
+  chrome.sockets.udp.send(socketId, arrayBuffer,
+    '127.0.0.1', 1337, function(sendInfo) {
+      console.log("sent " + sendInfo.bytesSent);
+  });
+  
+});
+*/
