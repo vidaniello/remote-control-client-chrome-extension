@@ -12,10 +12,14 @@
 // See https://developer.chrome.com/extensions/content_scripts
 
 // Log `title` of current active web page
-const pageTitle = document.head.getElementsByTagName('title')[0].innerHTML;
-console.log(
-  `Page title is: '${pageTitle}' - evaluated by Chrome extension's 'contentScript.js' file`
-);
+let titleElement = document.head.getElementsByTagName('title');
+if(titleElement!=null)
+  if(titleElement[0]!=null){
+    const pageTitle = titleElement[0].innerHTML;
+    console.log(
+      `Page title is: '${pageTitle}' - evaluated by Chrome extension's 'contentScript.js' file`
+    );
+}
 
 // Communicate with background file by sending a message
 chrome.runtime.sendMessage(
